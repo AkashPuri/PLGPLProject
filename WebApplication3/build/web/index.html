@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<title>Home for Faculty Management System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+.headerClass{
+    background: linear-gradient(to bottom, #68d8d6, #ffffff);
+  color: #454749;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+.headline {
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+.headline::before, 
+.headline::after {
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: lightblue;
+  display: block;
+  left: 0;
+  position: absolute;
+}
+.headline::before {
+  top: -6px;
+}
+.headline::after {
+  bottom: -6px;
+}
+.opacity-small {
+  opacity: 0.7;
+  filter: Alpha(opacity=70);
+}
+.opacity-medium {
+  opacity: 0.5;
+  filter: Alpha(opacity=50);
+}
+.opacity-large {
+  opacity: 0.25;
+  filter: Alpha(opacity=25);
+}
+
+
+
+</style>
+<body>
+    <br>
+<div class="headline">
+  <h1>
+    
+    &nbsp;
+    Faculty Management System
+    &nbsp;
+   
+  </h1>
+</div>
+<!-- Navbar -->
+<div class="w3-top">
+ <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Login</a>
+    <div class="dropdown-content">
+      <a href="adminLogin.jsp">Administrator Login</a>
+      <a href="facultyLogin.jsp">Faculty Login</a>
+      <a href="studentLogin.jsp">Student Login</a>
+    </div>
+  </li>
+</ul> 
+</div>
+
+<!-- Header -->
+<header class="headerClass" style="padding:128px 16px">
+  <div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="http://www.plgpl.org/images/banner.jpg" style="width:100%">
+  <img class="mySlides" src="http://www.plgpl.org/images/banner1.jpg" style="width:100%">
+  <img class="mySlides" src="http://www.plgpl.org/images/banner2.jpg" style="width:100%">
+  <img class="mySlides" src="http://www.plgpl.org/images/banner3.jpg" style="width:100%">
+  <img class="mySlides" src="http://www.plgpl.org/images/banner6.jpg" style="width:100%">
+</div>
+</header>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
