@@ -61,6 +61,7 @@
       <a href="addFaculty.jsp"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Add Faculty</span></a>
       <a href="/WebApplication3/EditFacultyServlet"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">Edit Faculty Details</span></a>
       <a href="/WebApplication3/DeleteFacultyDispatcher"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">Delete Faculty</span></a>
+  <a href="/WebApplication3/AllocateSubjectDispatcher" ><span class="glyphicon glyphicon-home"></span><span class="nav-label">Allocate Subject</span></a>
   </ul>
 </nav>
   

@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Faculty;
+import model.Subjectallocation;
 
 /**
  *
@@ -139,6 +140,35 @@ public class FacultyService {
                subjectAllocation.add(time);
             }
 subjectList.add(subjectAllocation);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("Size of subjectList  = "+subjectList.size());
+        
+        return subjectList;
+    }
+    
+     public List<Subjectallocation> getAllSubjectAllocation() {
+         List<Subjectallocation> subjectList = new ArrayList<Subjectallocation>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Drivers Loaded ..");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/facultydatabase", "root", "root");
+            System.out.println("Connection Established ..");
+            Statement stmt = con.createStatement();
+            System.out.println("Statement Created..");
+            ResultSet rs = stmt.executeQuery("select * from subjectallocation");
+            while (rs.next()) {
+                String name = rs.getString("facultyname");
+               String subject = rs.getString("subjectname");
+               String time = rs.getString("time");
+             Subjectallocation subjectallocation = new Subjectallocation();
+               subjectallocation.setFacultyName(name);
+               subjectallocation.setSubject(subject);
+               subjectallocation.setTime(time);
+               subjectList.add(subjectallocation);
+            }
             con.close();
         } catch (Exception e) {
             System.out.println(e);

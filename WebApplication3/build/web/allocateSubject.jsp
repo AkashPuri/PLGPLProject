@@ -62,11 +62,11 @@
   <a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
   <ul class="navbar-primary-menu">
     <li>
-      <a href="adminHome" class="active"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Home</span></a>
+      <a href="adminHome.jsp" class="active"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Home</span></a>
       <a href="addFaculty.jsp"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Add Faculty</span></a>
       <a href="/WebApplication3/EditFacultyServlet"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">Edit Faculty Details</span></a>
       <a href="/WebApplication3/DeleteFacultyDispatcher"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">Delete Faculty</span></a>
-      <a href="/WebApplication3/AllocateSubjectDispatcher" class="active"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Home</span></a>
+      <a href="/WebApplication3/AllocateSubjectDispatcher" ><span class="glyphicon glyphicon-home"></span><span class="nav-label">Allocate Subject</span></a>
   </ul>
 </nav>
 	
@@ -139,6 +139,21 @@
     </form>
 </center>
 </div>
+<div align="center">
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Time</th>
+            </tr>
+            <c:forEach var="faculty" items="${allocationList}">
+                <tr>
+                    <td><c:out value="${faculty.facultyName}" /></td>
+                    <td><c:out value="${faculty.subject}" /></td>
+                    <td><c:out value="${faculty.time}" /></td>                </tr>
+            </c:forEach>
+        </table>
+    </div>
 <script>
         $('.btn-expand-collapse').click(function(e) {
 				$('.navbar-primary').toggleClass('collapsed');

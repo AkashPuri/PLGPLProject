@@ -36,6 +36,7 @@ public class AllocateSubjectDispatcher extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
               response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("facultyList", new FacultyService().getAllFacultyDetails());
+        request.setAttribute("allocationList", new FacultyService().getAllSubjectAllocation());
         request.getRequestDispatcher("/allocateSubject.jsp").forward(request, response);
         }
     }
