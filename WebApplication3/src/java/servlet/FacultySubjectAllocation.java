@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MADHAVAN
  */
-@WebServlet(name = "AllocateSubjectDispatcher", urlPatterns = {"/AllocateSubjectDispatcher"})
-public class AllocateSubjectDispatcher extends HttpServlet {
+@WebServlet(name = "FacultySubjectAllocation", urlPatterns = {"/FacultySubjectAllocation"})
+public class FacultySubjectAllocation extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,14 +34,20 @@ public class AllocateSubjectDispatcher extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-              response.setContentType("text/html;charset=UTF-8");
-              
-               System.out.println("Referer "+request.getHeader("Referer"));
-        request.setAttribute("facultyList", new FacultyService().getAllFacultyDetails());
-        request.setAttribute("allocationList", new FacultyService().getAllSubjectAllocation());
-        String refer = request.getHeader("Referer");
-        
-        request.getRequestDispatcher("/allocateSubject.jsp").forward(request, response);
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet FacultySubjectAllocation</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet FacultySubjectAllocation at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            System.out.println("Referer "+request.getHeader("Referer"));
+               request.setAttribute("facultyList", new FacultyService().getAllFacultyDetails());
+            request.setAttribute("allocationList", new FacultyService().getAllSubjectAllocation());
+        request.getRequestDispatcher("/facultySubjectAllocation.jsp").forward(request, response);
         }
     }
 

@@ -102,7 +102,6 @@
 </style>
 
 <div class="w3-container w3-center w3-animate-right">
-
 <center>
 <table align="center" id="customers">
   <tr>

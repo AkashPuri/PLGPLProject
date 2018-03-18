@@ -63,6 +63,7 @@
       <a href="facultyHome.jsp" class="active"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Home</span></a>
       <a href="academic.jsp"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Academic Calender</span></a>
       <a href="#"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">MSBTE syllabus copy</span></a>
+     <a href="/WebApplication3/AllocateSubjectDispatcher" ><span class="glyphicon glyphicon-home"></span><span class="nav-label">Allocate Subject</span></a>
   </ul>
 </nav>
 	
@@ -88,7 +89,6 @@
 .danger {color: red;}
 .default {color: black;}
 </style>
-
 <center>
 
     <button class="btn success"><a href="academic.jsp">Academic Calender</a></button><br>
@@ -108,6 +108,7 @@
 <button class="btn warning">Theory Test Question Paper I/II</button><br>
 <button class="btn info">MSBTE Syllabus Copy</button><br>
 </center>
+
 
 
 <script>

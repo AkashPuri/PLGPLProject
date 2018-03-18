@@ -130,11 +130,11 @@ public class FacultyService {
             System.out.println("Connection Established ..");
             Statement stmt = con.createStatement();
             System.out.println("Statement Created..");
-            ResultSet rs = stmt.executeQuery("select * from subjectallocation where facultyname = "+facultyname);
+            ResultSet rs = stmt.executeQuery("select * from subjectallocation where `facultyname` = '"+facultyname+"'");
            
             List<String> subjectAllocation = new ArrayList<>();
             while (rs.next()) {
-               String subject = rs.getString("subject");
+               String subject = rs.getString("subjectname");
                String time = rs.getString("time");
                subjectAllocation.add(subject);
                subjectAllocation.add(time);
@@ -233,5 +233,4 @@ subjectList.add(subjectAllocation);
       
         return result;  
     }
-
 }

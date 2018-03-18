@@ -57,7 +57,7 @@ public class AddFaculty extends HttpServlet {
             newFaculty.setUsername(username);
             newFaculty.setPassword(password);
             
-            if(authenticationService.addNewUser(username, password, "faculty")){
+            if(authenticationService.addNewUser(username, password, "faculty",name)){
                 if(facultyService.addNewFaculty(newFaculty)){
                     
                 request.setAttribute("facultyAdd","Faculty Added Successfully!! ");

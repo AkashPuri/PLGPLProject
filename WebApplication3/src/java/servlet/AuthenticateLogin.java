@@ -40,7 +40,10 @@ public class AuthenticateLogin extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.print(username + "" + password);
-        String role = new AuthenticationService().validateUserLogin(username, password);
+        String output = new AuthenticationService().validateUserLogin(username, password);
+        String[] oututArray = output.split("#");
+        String role = oututArray[0];
+        String facultyName = oututArray[1];
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -61,14 +64,8 @@ public class AuthenticateLogin extends HttpServlet {
                     break;
                     
                 case "faculty":
-            List<Faculty> facultyList = new FacultyService().getAllFacultyDetails();
-                    String facultyName = null;
-                    for (int i = 0; i < facultyList.size(); i++) {
-                        if(facultyList.get(i).getUsername().equalsIgnoreCase(username))
-                            facultyName = facultyList.get(i).getName();
-                    }
                     System.out.println("Faculty name = "+facultyName);
-                    request.setAttribute("facultySubject",new FacultyService().getAllSubjectAllocation(facultyName));
+                    request.setAttribute("allocationList",new FacultyService().getAllSubjectAllocation());
                     request.getRequestDispatcher("/facultyHome.jsp").forward(request, response);
                     break;
                 case "student":

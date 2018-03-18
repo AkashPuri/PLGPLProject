@@ -34,7 +34,7 @@ public class AuthenticationService {
             while (rs.next()) {
                 String passwordInTable = rs.getString(2);
                 if(password.equals(passwordInTable)){
-                    role = rs.getString(3);
+                    role = rs.getString(3)+"#"+rs.getString(4);
                 }               
                 System.out.println(rs.getString(1) + "  " + "  " + rs.getString(3));
             }
@@ -46,7 +46,7 @@ public class AuthenticationService {
         return role;
     }
     
-    public boolean addNewUser(String username,String password,String role){
+    public boolean addNewUser(String username,String password,String role,String facultyName){
         boolean result = false;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -59,6 +59,7 @@ public class AuthenticationService {
             prepareStatement.setString(1, username);
             prepareStatement.setString(2, password);
             prepareStatement.setString(3, role);
+            prepareStatement.setString(4, facultyName);
             int rowsUpdated = prepareStatement.executeUpdate();
             System.out.println("Rows added ="+rowsUpdated);
             if(rowsUpdated > 0){
