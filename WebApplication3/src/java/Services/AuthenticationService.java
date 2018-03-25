@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class AuthenticationService {
 
-     private static final String ADDUSERQUERY ="INSERT INTO `usertable` (`username`, `password`, `role`) VALUES (?, ?, ?);";
+     private static final String ADDUSERQUERY ="INSERT INTO `usertable` (`username`, `password`, `role`,`facultyName`) VALUES (?, ?, ?,?);";
 
 
     public String validateUserLogin(String username, String password) {

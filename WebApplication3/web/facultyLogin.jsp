@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
   </div>
   
   <div class="tile-body">
-      <form id="form" action="/WebApplication3/facultyHome.jsp" method="POST">
+      <form id="form" action="/WebApplication3/AuthenticateLogin" method="POST">
       <label class="form-input">
         <i class="material-icons">person</i>
         <input type="text" name="username" autofocus="true" required />

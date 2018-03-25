@@ -35,12 +35,12 @@ public class DeleteFaculty extends HttpServlet {
          int id = Integer.parseInt(request.getParameter("id"));
          FacultyService service = new FacultyService();
          if(service.deleteFaculty(id)){
-                request.setAttribute("facultyAdd","Faculty Details Deleted Successfully!! ");
+                request.setAttribute("message","Faculty Details Deleted Successfully!! ");
                 request.getRequestDispatcher("/adminHome.jsp").forward(request, response);
          }
          else{
             request.setAttribute("facultyList", new FacultyService().getAllFacultyDetails());
-                request.setAttribute("facultyAdd","Faculty Details Delete Failed!! ");
+                request.setAttribute("message","Faculty Details Delete Failed!! ");
                request.getRequestDispatcher("/deleteFacultySelection.jsp").forward(request, response); 
          }
     }

@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Services.AuthenticationService;
 import Services.FacultyService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import model.Faculty;
+import model.Subjectallocation;
 
 /**
  *
@@ -65,7 +67,16 @@ public class AuthenticateLogin extends HttpServlet {
                     
                 case "faculty":
                     System.out.println("Faculty name = "+facultyName);
-                    request.setAttribute("allocationList",new FacultyService().getAllSubjectAllocation());
+            List<Subjectallocation> allocationList = new FacultyService().getAllSubjectAllocation();
+            List<Subjectallocation> forwardList = new ArrayList<>();
+            for(int i =0;i<allocationList.size();i++){
+                Subjectallocation allocation = allocationList.get(i);
+                if(allocation.getFacultyName().equalsIgnoreCase(facultyName)){
+                    forwardList.add(allocation);
+                }
+            }
+            session.setAttribute("allocationList", forwardList);
+                //    request.setAttribute("allocationList",forwardList);
                     request.getRequestDispatcher("/facultyHome.jsp").forward(request, response);
                     break;
                 case "student":

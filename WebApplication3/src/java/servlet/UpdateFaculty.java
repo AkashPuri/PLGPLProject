@@ -59,12 +59,12 @@ public class UpdateFaculty extends HttpServlet {
             
                 if(facultyService.updateFaculty(newFaculty)){
                     
-                request.setAttribute("facultyAdd","Faculty Details Updated Successfully!! ");
+                request.setAttribute("message","Faculty Details Updated Successfully!! ");
                 request.getRequestDispatcher("/adminHome.jsp").forward(request, response);
                 }
             else{
                 request.setAttribute("facultyList", new FacultyService().getAllFacultyDetails());
-                request.setAttribute("facultyAdd","Faculty Details Update Failed!! ");
+                request.setAttribute("message","Faculty Details Update Failed!! ");
                request.getRequestDispatcher("/editFacultySelection.jsp").forward(request, response);
             }
         }

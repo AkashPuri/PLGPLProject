@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="model.Subjectallocation" %>
+<%@ page import="java.util.*" %>
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,9 +19,7 @@
 <style type="text/css">
 	<%@include file="newui.css" %>
 </style>
-	<%-- <c:if test="${message ne null}">
-		<script>alert('${message}'); </script>
-	</c:if> --%>
+	<%--  --%>
 <script type="text/javascript">
 	function setcookie()
 	{
@@ -36,7 +36,10 @@
 </script>
 </head>
 <body>
-
+<c:if test="${message ne null}">
+		<script>alert('${message}'); </script>
+	</c:if>
+                
 	<nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -63,7 +66,6 @@
       <a href="facultyHome.jsp" class="active"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Home</span></a>
       <a href="academic.jsp"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Academic Calender</span></a>
       <a href="#"><span class="glyphicon glyphicon-stats"></span><span class="nav-label">MSBTE syllabus copy</span></a>
-     <a href="/WebApplication3/AllocateSubjectDispatcher" ><span class="glyphicon glyphicon-home"></span><span class="nav-label">Allocate Subject</span></a>
   </ul>
 </nav>
 	
@@ -108,7 +110,22 @@
 <button class="btn warning">Theory Test Question Paper I/II</button><br>
 <button class="btn info">MSBTE Syllabus Copy</button><br>
 </center>
-
+<div align="center">
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Time</th>
+            </tr>
+            <% Object allocationList = session.getAttribute("allocationList");%>
+            <c:forEach var="faculty" items="${allocationList}">
+                <tr>
+                    <td><c:out value="${faculty.facultyName}" /></td>
+                    <td><c:out value="${faculty.subject}" /></td>
+                    <td><c:out value="${faculty.time}" /></td>                </tr>
+            </c:forEach>
+        </table>
+    </div>
 
 
 <script>
@@ -128,6 +145,7 @@
 		  }
 	  }
 </script>
+
         </body>
 </html>
  

@@ -45,12 +45,12 @@ public class AddSubectServlet extends HttpServlet {
           
                 if(facultyService.addNewSubjectAllocation(subject, facultyName, time)){
                     
-                request.setAttribute("facultyAdd","Faculty Added Successfully!! ");
+                request.setAttribute("message","Subject Allocated Successfully!! ");
                 request.getRequestDispatcher("/allocateSubject.jsp").forward(request, response);
                 
                 }
             else{
-                request.setAttribute("facultyAdd","Username Already Exist");
+                request.setAttribute("message","Something went wrong");
                 request.getRequestDispatcher("/adminHome.jsp").forward(request, response);
             }
         }

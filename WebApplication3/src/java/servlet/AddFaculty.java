@@ -60,12 +60,12 @@ public class AddFaculty extends HttpServlet {
             if(authenticationService.addNewUser(username, password, "faculty",name)){
                 if(facultyService.addNewFaculty(newFaculty)){
                     
-                request.setAttribute("facultyAdd","Faculty Added Successfully!! ");
+                request.setAttribute("message","Faculty Added Successfully!! ");
                 request.getRequestDispatcher("/adminHome.jsp").forward(request, response);
                 }
                 }
             else{
-                request.setAttribute("facultyAdd","Username Already Exist");
+                request.setAttribute("message","Something went wrong");
                 request.getRequestDispatcher("/addFaculty.jsp").forward(request, response);
             }
             

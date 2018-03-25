@@ -38,7 +38,9 @@
 </script>
 </head>
 <body>
-
+ <c:if test="${message ne null}">
+		<script>alert('${message}'); </script>
+	</c:if> 
 	<nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
